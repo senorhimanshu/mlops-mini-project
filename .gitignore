@@ -87,3 +87,7 @@ target/
 
 # Mypy cache
 .mypy_cache/
+
+# .pkl files
+models/model.pkl
+models/vectorizer.pkl
