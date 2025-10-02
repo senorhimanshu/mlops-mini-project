@@ -1,4 +1,4 @@
 [core]
     remote = myremote
 ['remote "myremote"']
-    url = C:\Users\senor\AppData\Local\Temp
+    url = s3://himanshu-mlflow-artifact
