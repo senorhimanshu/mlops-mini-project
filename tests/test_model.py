@@ -47,21 +47,21 @@ class TestModelLoading(unittest.TestCase):
     def test_model_loaded_properly(self):
         self.assertIsNotNone(self.new_model)
 
-    # def test_model_signature(self):
-    #     # Create a dummy input for the model based on expected input shape
-    #     input_text = "hi how are you"
-    #     input_data = self.vectorizer.transform([input_text])
-    #     input_df = pd.DataFrame(input_data.toarray(), columns=[str(i) for i in range(input_data.shape[1])])
+    def test_model_signature(self):
+        # Create a dummy input for the model based on expected input shape
+        input_text = "hi how are you"
+        input_data = self.vectorizer.transform([input_text])
+        input_df = pd.DataFrame(input_data.toarray(), columns=[str(i) for i in range(input_data.shape[1])])
 
-    #     # Predict using the new model to verify the input and output shapes
-    #     prediction = self.new_model.predict(input_df)
+        # Predict using the new model to verify the input and output shapes
+        prediction = self.new_model.predict(input_df)
 
-    #     # Verify the input shape
-    #     self.assertEqual(input_df.shape[1], len(self.vectorizer.get_feature_names_out()))
+        # Verify the input shape
+        self.assertEqual(input_df.shape[1], len(self.vectorizer.get_feature_names_out()))
 
-    #     # Verify the output shape (assuming binary classification with a single output)
-    #     self.assertEqual(len(prediction), input_df.shape[0])
-    #     self.assertEqual(len(prediction.shape), 1)  # Assuming a single output column for binary classification
+        # Verify the output shape (assuming binary classification with a single output)
+        self.assertEqual(len(prediction), input_df.shape[0])    # prediction output has the same number of rows as the input
+        self.assertEqual(len(prediction.shape), 1)  # Assuming a single output column for binary classification # Ensures the prediction result is a 1D array (e.g., [0, 1, 0]) rather than 2D.
 
     # def test_model_performance(self):
     #     # Extract features and labels from holdout test data
